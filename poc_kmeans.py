@@ -1,8 +1,6 @@
 # TUTORIAL DE
 # https://towardsdatascience.com/machine-learning-algorithms-part-9-k-means-example-in-python-f2ad05ed5203
 
-import numpy as np
-import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
