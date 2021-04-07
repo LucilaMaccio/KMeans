@@ -424,7 +424,24 @@ for i in range(0,len(X)):
         finalApartment.append(3)
     else:
         finalApartment.append(-1)
-    finalApartment.append(97)
+
+    if location == "Casa de campo":
+        finalApartment.append(91)
+    elif location == "Argüelles":
+        finalApartment.append(92)
+    elif location == "Ciudad Universitaria":
+        finalApartment.append(93)
+    elif location == "Valdezarza":
+        finalApartment.append(94)
+    elif location == "Valdemarin":
+        finalApartment.append(95)
+    elif location == "El Plantio":
+        finalApartment.append(96)
+    elif location == "Aravaca":
+        finalApartment.append(97)
+    else:
+        finalApartment.append(-1)
+
     finalApartment.append(price)
 
     newArray.append(finalApartment)
@@ -463,3 +480,10 @@ kmeans = KMeans(
 pred_y = kmeans.fit_predict(newArray)
 print("KMEANS")
 print(pred_y)
+
+labels, counts = np.unique(pred_y, return_counts=True)
+plt.bar(labels, counts, align='center')
+plt.gca().set_xticks(labels)
+plt.show()
+
+# añadir visualizacion con diagrama de barras o algo similar
