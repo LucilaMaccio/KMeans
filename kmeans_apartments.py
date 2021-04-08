@@ -1,199 +1,10 @@
 import numpy as np
+import json
 from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 
-X = [
-    {
-        "price": "259000",
-        "rooms": "3",
-        "bathrooms": "1",
-        "house_size": "73",
-        "location": "Guindalera",
-        "type": "Piso",
-        "parking": "0",
-        "elevator": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "299000",
-        "rooms": "2",
-        "bathrooms": "1",
-        "house_size": "90",
-        "location": "Guindalera",
-        "type": "Piso",
-        "elevator": "1",
-        "parking": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "490000",
-        "rooms": "4",
-        "bathrooms": "2",
-        "house_size": "110",
-        "location": "Guindalera",
-        "type": "Piso",
-        "elevator": "1",
-        "terraze": "1",
-        "parking": "0",
-        "pool": "0",
-        "storage_room": "0"
-    },
-    {
-        "price": "405760",
-        "rooms": "4",
-        "bathrooms": "2",
-        "house_size": "93",
-        "location": "Guindalera",
-        "type": "Piso",
-        "elevator": "1",
-        "parking": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "495000",
-        "rooms": "4",
-        "bathrooms": "2",
-        "house_size": "150",
-        "location": "Guindalera",
-        "type": "Piso",
-        "elevator": "1",
-        "parking": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "800000",
-        "rooms": "4",
-        "bathrooms": "3",
-        "house_size": "213",
-        "location": "Guindalera",
-        "type": "Casa o chalet",
-        "parking": "0",
-        "elevator": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "890000",
-        "rooms": "3",
-        "bathrooms": "2",
-        "house_size": "208",
-        "location": "Guindalera",
-        "type": "Casa adosada",
-        "terraze": "1",
-        "parking": "0",
-        "elevator": "0",
-        "pool": "0",
-        "storage_room": "0"
-    },
-    {
-        "price": "535000",
-        "rooms": "3",
-        "bathrooms": "2",
-        "house_size": "110",
-        "location": "Guindalera",
-        "type": "Piso",
-        "parking": "0",
-        "elevator": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "397800",
-        "rooms": "4",
-        "bathrooms": "2",
-        "house_size": "106",
-        "location": "Guindalera",
-        "type": "Piso",
-        "elevator": "1",
-        "parking": "0",
-        "pool": "0",
-        "storage_room": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "550000",
-        "rooms": "3",
-        "bathrooms": "1",
-        "house_size": "113",
-        "location": "Guindalera",
-        "type": "Piso",
-        "elevator": "1",
-        "terraze": "1",
-        "parking": "0",
-        "pool": "0",
-        "storage_room": "0"
-    },
-    {
-        "price": "N/A",
-        "rooms": "N/A",
-        "house_size": "N/A",
-        "location": "N/A",
-        "type": "N/A"
-    },
-    {
-        "price": "870000",
-        "rooms": "4",
-        "bathrooms": "2",
-        "house_size": "171",
-        "location": "Legazpi de Madrid",
-        "type": "Ático",
-        "elevator": "1",
-        "terraze": "1",
-        "storage_room": "1",
-        "pool": "1",
-        "parking": "0"
-    },
-    {
-        "price": "260000",
-        "rooms": "1",
-        "bathrooms": "1",
-        "house_size": "47",
-        "location": "Legazpi de Madrid",
-        "type": "Apartamento",
-        "elevator": "1",
-        "storage_room": "1",
-        "pool": "1",
-        "parking": "0",
-        "terraze": "0"
-    },
-    {
-        "price": "N/A",
-        "rooms": "N/A",
-        "house_size": "N/A",
-        "location": "N/A",
-        "type": "N/A"
-    },
-    {
-        "price": "N/A",
-        "rooms": "N/A",
-        "house_size": "N/A",
-        "location": "N/A",
-        "type": "N/A"
-    },
-    {
-        "price": "499000",
-        "rooms": "3",
-        "bathrooms": "2",
-        "house_size": "117",
-        "location": "Legazpi de Madrid",
-        "type": "Piso",
-        "elevator": "1",
-        "storage_room": "1",
-        "pool": "1",
-        "parking": "0",
-        "terraze": "0"
-    }
-]
+file = open('C:\\Users\lucil\Downloads\data912478214.json', 'r', encoding='utf-8')
+X = json.loads(file.read())
 
 newArray=[]
 
@@ -307,12 +118,31 @@ for i in range(0,len(X)):
         else:
             finalApartment.append(-1)
 
-        finalApartment.append(int(elevator))
-        finalApartment.append(int(storage_room))
-        finalApartment.append(int(parking))
-        finalApartment.append(int(pool))
-        finalApartment.append(int(terraze))
-        
+        if elevator == True:
+            finalApartment.append(1)
+        else:
+            finalApartment.append(0)
+
+        if storage_room == True:
+            finalApartment.append(1)
+        else:
+            finalApartment.append(0)
+
+        if parking == True:
+            finalApartment.append(1)
+        else:
+            finalApartment.append(0)
+
+        if pool == True:
+            finalApartment.append(1)
+        else:
+            finalApartment.append(0)
+
+        if terraze == True:
+            finalApartment.append(1)
+        else:
+            finalApartment.append(0)
+
         newArray.append(finalApartment)
 
 finalArray = np.array(newArray)
