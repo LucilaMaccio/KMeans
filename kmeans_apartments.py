@@ -3,456 +3,327 @@ from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 
 X = [
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Orientación":"Sur",
-      "Estado":"A reformar",
-      "Antigüedad":"30 a 50 años",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Calefacción":True,
-      "Jardín Privado":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Piscina":True,
-      "Alarma":True,
-      "Puerta Blindada":True,
-      "price":"1975000",
-      "rooms":"4",
-      "bathrooms":"4",
-      "house_size":"600",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Dúplex",
-      "Antigüedad":"10 a 20 años",
-      "Planta":"2ª planta",
-      "Ascensor":"Sí",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Calefacción":True,
-      "Gres Cerámica":True,
-      "Parquet":True,
-      "Trastero":True,
-      "Puerta Blindada":True,
-      "Cocina Equipada":True,
-      "price":"340000",
-      "rooms":"3",
-      "bathrooms":"2",
-      "house_size":"75",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Orientación":"Sureste",
-      "Agua caliente":"Gas Natural",
-      "Calefacción":"Gas Natural",
-      "Estado":"Bien",
-      "Antigüedad":"30 a 50 años",
-      "Planta":"Bajos",
-      "Parking":"Privado",
-      "Consumo energía":"C300 kW h m² / año",
-      "Emisiones":"C300 kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Gres Cerámica":True,
-      "Jardín Privado":True,
-      "Parquet":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Cocina Office":True,
-      "Suite - con baño":True,
-      "Electrodomésticos":True,
-      "Horno":True,
-      "Lavadora":True,
-      "Microondas":True,
-      "Nevera":True,
-      "TV":True,
-      "Balcón":True,
-      "Internet":True,
-      "Zona Infantil":True,
-      "Puerta Blindada":True,
-      "Lavadero":True,
-      "Cocina Equipada":True,
-      "price":"785000",
-      "rooms":"5",
-      "bathrooms":"4",
-      "house_size":"260",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Orientación":"Sureste",
-      "Agua caliente":"Gas Natural",
-      "Calefacción":"Gas Natural",
-      "Estado":"Muy bien",
-      "Antigüedad":"10 a 20 años",
-      "Planta":"Bajos",
-      "Parking":"Privado",
-      "Amueblado":"No",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Jardín Privado":True,
-      "Terraza":True,
-      "Cocina Office":True,
-      "Piscina":True,
-      "Suite - con baño":True,
-      "Electrodomésticos":True,
-      "Horno":True,
-      "Lavadora":True,
-      "Microondas":True,
-      "Nevera":True,
-      "Balcón":True,
-      "Jacuzzi":True,
-      "Alarma":True,
-      "Puerta Blindada":True,
-      "Lavadero":True,
-      "Baño de huéspedes":True,
-      "Cuarto lavado plancha":True,
-      "Cuarto para el servicio":True,
-      "Porche cubierto":True,
-      "Cocina Equipada":True,
-      "price":"1780000",
-      "rooms":"5",
-      "bathrooms":"5",
-      "house_size":"491",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Piso",
-      "Parking":"Privado",
-      "Ascensor":"Sí",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Calefacción":True,
-      "Parquet":True,
-      "Trastero":True,
-      "Z. Comunitaria":True,
-      "Cocina Office":True,
-      "Serv. portería":True,
-      "Piscina comunitaria":True,
-      "price":"750000",
-      "rooms":"3",
-      "bathrooms":"3",
-      "house_size":"144",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa adosada",
-      "Orientación":"Sur",
-      "Calefacción":"Gas Natural",
-      "Estado":"Bien",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Jardín Privado":True,
-      "Parquet":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Piscina":True,
-      "Electrodomésticos":True,
-      "Alarma":True,
-      "Puerta Blindada":True,
-      "Cocina Equipada":True,
-      "price":"1650000",
-      "rooms":"5",
-      "bathrooms":"6",
-      "house_size":"500",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Piso",
-      "Orientación":"Suroeste",
-      "Estado":"Casi nuevo",
-      "Antigüedad":"10 a 20 años",
-      "Planta":"1ª planta",
-      "Parking":"Privado",
-      "Ascensor":"Sí",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Calefacción":True,
-      "Parquet":True,
-      "Trastero":True,
-      "Z. Comunitaria":True,
-      "Cocina Office":True,
-      "Suite - con baño":True,
-      "Zona Infantil":True,
-      "Puerta Blindada":True,
-      "Piscina comunitaria":True,
-      "Lavadero":True,
-      "Cocina Equipada":True,
-      "price":"748000",
-      "rooms":"3",
-      "bathrooms":"3",
-      "house_size":"144",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Antigüedad":"20 a 30 años",
-      "Parking":"Privado",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Calefacción":True,
-      "Jardín Privado":True,
-      "Terraza":True,
-      "Piscina":True,
-      "Gimnasio":True,
-      "price":"1942500",
-      "rooms":"4",
-      "bathrooms":"5",
-      "house_size":"316",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Antigüedad":"5 a 10 años",
-      "Parking":"Privado",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Armarios":True,
-      "Calefacción":True,
-      "Jardín Privado":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Z. Comunitaria":True,
-      "Cocina Office":True,
-      "Piscina":True,
-      "Suite - con baño":True,
-      "Electrodomésticos":True,
-      "Serv. portería":True,
-      "Alarma":True,
-      "Zona Infantil":True,
-      "Puerta Blindada":True,
-      "Piscina comunitaria":True,
-      "Cocina Equipada":True,
-      "price":"950000",
-      "rooms":"4",
-      "bathrooms":"4",
-      "house_size":"330",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Calefacción":"Gas Natural",
-      "Estado":"Bien",
-      "Parking":"Privado",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Jardín Privado":True,
-      "Parquet":True,
-      "price":"720000",
-      "rooms":"5",
-      "bathrooms":"4",
-      "house_size":"200",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa adosada",
-      "Orientación":"Sureste",
-      "Agua caliente":"Gas Natural",
-      "Estado":"A reformar",
-      "Antigüedad":"30 a 50 años",
-      "Amueblado":"No",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Calefacción":True,
-      "Gres Cerámica":True,
-      "Jardín Privado":True,
-      "Piscina":True,
-      "Puerta Blindada":True,
-      "Lavadero":True,
-      "price":"985000",
-      "rooms":"4",
-      "bathrooms":"4",
-      "house_size":"374",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa adosada",
-      "Agua caliente":"Gas Natural",
-      "Calefacción":"Gas Natural",
-      "Estado":"Muy bien",
-      "Planta":"Principal",
-      "Parking":"Privado",
-      "Amueblado":"No",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Gres Cerámica":True,
-      "Jardín Privado":True,
-      "Parquet":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Z. Comunitaria":True,
-      "Cocina Office":True,
-      "Piscina":True,
-      "Suite - con baño":True,
-      "Serv. portería":True,
-      "Jacuzzi":True,
-      "Gimnasio":True,
-      "Bodega":True,
-      "Sauna":True,
-      "Pista de Tenis":True,
-      "Alarma":True,
-      "Videoportero":True,
-      "Zona Deportiva":True,
-      "Zona Infantil":True,
-      "Puerta Blindada":True,
-      "Piscina comunitaria":True,
-      "Lavadero":True,
-      "Ascensor interior":True,
-      "Baño de huéspedes":True,
-      "Cuarto lavado plancha":True,
-      "Cuarto para el servicio":True,
-      "Porche cubierto":True,
-      "Cocina Equipada":True,
-      "price":"2970000",
-      "rooms":"7",
-      "bathrooms":"9",
-      "house_size":"1100",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Piso",
-      "Orientación":"Noroeste",
-      "Agua caliente":"Gas Natural",
-      "Calefacción":"Gas Natural",
-      "Estado":"Bien",
-      "Antigüedad":"30 a 50 años",
-      "Planta":"1ª planta",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Armarios":True,
-      "Parquet":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Electrodomésticos":True,
-      "Puerta Blindada":True,
-      "Lavadero":True,
-      "Cocina Equipada":True,
-      "price":"275000",
-      "rooms":"2",
-      "bathrooms":"1",
-      "house_size":"70",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Piso",
-      "Orientación":"Noroeste",
-      "Agua caliente":"Gas Natural",
-      "Calefacción":"Gas Natural",
-      "Estado":"Bien",
-      "Antigüedad":"20 a 30 años",
-      "Planta":"1ª planta",
-      "Parking":"Privado",
-      "Ascensor":"Sí",
-      "Amueblado":"No",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Armarios":True,
-      "Gres Cerámica":True,
-      "Parquet":True,
-      "Terraza":True,
-      "Z. Comunitaria":True,
-      "Cocina Office":True,
-      "Suite - con baño":True,
-      "Videoportero":True,
-      "Zona Deportiva":True,
-      "Zona Infantil":True,
-      "Piscina comunitaria":True,
-      "Cocina Equipada":True,
-      "price":"670000",
-      "rooms":"4",
-      "bathrooms":"3",
-      "house_size":"158",
-      "location":"Aravaca"
-   },
-   {
-      "Tipo de inmueble":"Casa o chalet",
-      "Estado":"Muy bien",
-      "Planta":"Bajos",
-      "Parking":"Privado",
-      "Consumo energía":"G999 kW h m² / año",
-      "Emisiones":"En trámite- kg CO₂ m² / año",
-      "Aire acondicionado":True,
-      "Jardín Privado":True,
-      "Terraza":True,
-      "Trastero":True,
-      "Piscina":True,
-      "Cocina Equipada":True,
-      "price":"990000",
-      "rooms":"5",
-      "bathrooms":"5",
-      "house_size":"360",
-      "location":"Aravaca"
-   }
+    {
+        "price": "259000",
+        "rooms": "3",
+        "bathrooms": "1",
+        "house_size": "73",
+        "location": "Guindalera",
+        "type": "Piso",
+        "parking": "0",
+        "elevator": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "299000",
+        "rooms": "2",
+        "bathrooms": "1",
+        "house_size": "90",
+        "location": "Guindalera",
+        "type": "Piso",
+        "elevator": "1",
+        "parking": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "490000",
+        "rooms": "4",
+        "bathrooms": "2",
+        "house_size": "110",
+        "location": "Guindalera",
+        "type": "Piso",
+        "elevator": "1",
+        "terraze": "1",
+        "parking": "0",
+        "pool": "0",
+        "storage_room": "0"
+    },
+    {
+        "price": "405760",
+        "rooms": "4",
+        "bathrooms": "2",
+        "house_size": "93",
+        "location": "Guindalera",
+        "type": "Piso",
+        "elevator": "1",
+        "parking": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "495000",
+        "rooms": "4",
+        "bathrooms": "2",
+        "house_size": "150",
+        "location": "Guindalera",
+        "type": "Piso",
+        "elevator": "1",
+        "parking": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "800000",
+        "rooms": "4",
+        "bathrooms": "3",
+        "house_size": "213",
+        "location": "Guindalera",
+        "type": "Casa o chalet",
+        "parking": "0",
+        "elevator": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "890000",
+        "rooms": "3",
+        "bathrooms": "2",
+        "house_size": "208",
+        "location": "Guindalera",
+        "type": "Casa adosada",
+        "terraze": "1",
+        "parking": "0",
+        "elevator": "0",
+        "pool": "0",
+        "storage_room": "0"
+    },
+    {
+        "price": "535000",
+        "rooms": "3",
+        "bathrooms": "2",
+        "house_size": "110",
+        "location": "Guindalera",
+        "type": "Piso",
+        "parking": "0",
+        "elevator": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "397800",
+        "rooms": "4",
+        "bathrooms": "2",
+        "house_size": "106",
+        "location": "Guindalera",
+        "type": "Piso",
+        "elevator": "1",
+        "parking": "0",
+        "pool": "0",
+        "storage_room": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "550000",
+        "rooms": "3",
+        "bathrooms": "1",
+        "house_size": "113",
+        "location": "Guindalera",
+        "type": "Piso",
+        "elevator": "1",
+        "terraze": "1",
+        "parking": "0",
+        "pool": "0",
+        "storage_room": "0"
+    },
+    {
+        "price": "N/A",
+        "rooms": "N/A",
+        "house_size": "N/A",
+        "location": "N/A",
+        "type": "N/A"
+    },
+    {
+        "price": "870000",
+        "rooms": "4",
+        "bathrooms": "2",
+        "house_size": "171",
+        "location": "Legazpi de Madrid",
+        "type": "Ático",
+        "elevator": "1",
+        "terraze": "1",
+        "storage_room": "1",
+        "pool": "1",
+        "parking": "0"
+    },
+    {
+        "price": "260000",
+        "rooms": "1",
+        "bathrooms": "1",
+        "house_size": "47",
+        "location": "Legazpi de Madrid",
+        "type": "Apartamento",
+        "elevator": "1",
+        "storage_room": "1",
+        "pool": "1",
+        "parking": "0",
+        "terraze": "0"
+    },
+    {
+        "price": "N/A",
+        "rooms": "N/A",
+        "house_size": "N/A",
+        "location": "N/A",
+        "type": "N/A"
+    },
+    {
+        "price": "N/A",
+        "rooms": "N/A",
+        "house_size": "N/A",
+        "location": "N/A",
+        "type": "N/A"
+    },
+    {
+        "price": "499000",
+        "rooms": "3",
+        "bathrooms": "2",
+        "house_size": "117",
+        "location": "Legazpi de Madrid",
+        "type": "Piso",
+        "elevator": "1",
+        "storage_room": "1",
+        "pool": "1",
+        "parking": "0",
+        "terraze": "0"
+    }
 ]
 
 newArray=[]
 
 print("longitud X =", len(X))
 
+# data format
 for i in range(0,len(X)):
     element=X[i]
-    tipoInmueble=element["Tipo de inmueble"]
-    location=element["location"]
-    price=element["price"]
 
-    finalApartment=[]
-
-    if tipoInmueble == "Casa o chalet":
-        finalApartment.append(0)
-    elif tipoInmueble == "Piso":
-        finalApartment.append(1)
-    elif tipoInmueble == "Casa adosada":
-        finalApartment.append(2)
-    elif tipoInmueble == "Dúplex":
-        finalApartment.append(3)
+    if len(element) != 11:
+        continue
     else:
-        finalApartment.append(-1)
+        price=element["price"]
+        rooms=element["rooms"]
+        bathrooms=element["bathrooms"]
+        house_size=element["house_size"]
+        location=element["location"]
+        homeType=element["type"]
+        elevator=element["elevator"]
+        parking=element["parking"]
+        pool=element["pool"]
+        storage_room=element["storage_room"]
+        terraze=element["terraze"]
+        
+        finalApartment=[]
 
-    if location == "Casa de campo":
-        finalApartment.append(91)
-    elif location == "Argüelles":
-        finalApartment.append(92)
-    elif location == "Ciudad Universitaria":
-        finalApartment.append(93)
-    elif location == "Valdezarza":
-        finalApartment.append(94)
-    elif location == "Valdemarin":
-        finalApartment.append(95)
-    elif location == "El Plantio":
-        finalApartment.append(96)
-    elif location == "Aravaca":
-        finalApartment.append(97)
-    else:
-        finalApartment.append(-1)
+        finalApartment.append(price)
+        finalApartment.append(int(rooms))
+        finalApartment.append(int(bathrooms))
+        finalApartment.append(int(house_size))
 
-    finalApartment.append(price)
+        if location.find("Palacio") != -1:
+            finalApartment.append(11)
+        elif location.find("Embajadores") != -1: 
+            finalApartment.append(12)
+        elif location.find("Cortes") != -1: 
+            finalApartment.append(13)
+        elif location.find("Justicia") != -1: 
+            finalApartment.append(14)
+        elif location.find("Universidad") != -1: 
+            finalApartment.append(15)
+        elif location.find("Sol") != -1: 
+            finalApartment.append(16)
 
-    newArray.append(finalApartment)
+        elif location.find("Imperial") != -1: 
+            finalApartment.append(21)
+        elif location.find("Acacias") != -1: 
+            finalApartment.append(22)
+        elif location.find("Chopera") != -1: 
+            finalApartment.append(23)
+        elif location.find("Legazpi") != -1: 
+            finalApartment.append(24)
+        elif location.find("Delicias") != -1: 
+            finalApartment.append(25)
+        elif location.find("Palos de Moguer") != -1: 
+            finalApartment.append(26)
+        elif location.find("Atocha") != -1: 
+            finalApartment.append(27)
+
+        elif location.find("Pacífico") != -1: 
+            finalApartment.append(31)
+        elif location.find("Adelfas") != -1: 
+            finalApartment.append(32)
+        elif location.find("Estrella") != -1: 
+            finalApartment.append(33)
+        elif location.find("Ibiza") != -1: 
+            finalApartment.append(34)
+        elif location.find("Jerónimos") != -1: 
+            finalApartment.append(35)
+        elif location.find("Niño Jesús") != -1: 
+            finalApartment.append(36)
+
+        elif location.find("Recoletos") != -1: 
+            finalApartment.append(41)
+        elif location.find("Goya") != -1: 
+            finalApartment.append(42)
+        elif location.find("Fuente del Berro") != -1: 
+            finalApartment.append(43)
+        elif location.find("Guindalera") != -1: 
+            finalApartment.append(44)
+        elif location.find("Lista") != -1: 
+            finalApartment.append(45)
+        elif location.find("Castellana") != -1: 
+            finalApartment.append(46)
+
+        elif location.find("Gaztambide") != -1: 
+            finalApartment.append(71)
+        elif location.find("Arapiles") != -1: 
+            finalApartment.append(72)
+        elif location.find("Trafalgar") != -1: 
+            finalApartment.append(73)
+        elif location.find("Almagro") != -1: 
+            finalApartment.append(74)
+        elif location.find("Rios Rosas") != -1: 
+            finalApartment.append(75)
+        elif location.find("Vallehermoso") != -1: 
+            finalApartment.append(76)
+        else: 
+            finalApartment.append(-1)
+
+        if homeType.find("Casa")  != -1 or homeType.find("Chalet") != -1:
+            finalApartment.append(0)
+        elif homeType.find("Piso") != -1 or homeType.find("Apartamento") != -1:
+            finalApartment.append(1)
+        elif homeType.find("Adosada") != -1 or homeType.find("Adosado") != -1:
+            finalApartment.append(2)
+        elif homeType.find("Dúplex") != -1:
+            finalApartment.append(3)
+        elif homeType.find("Ático") != -1:
+            finalApartment.append(4)
+        else:
+            finalApartment.append(-1)
+
+        finalApartment.append(int(elevator))
+        finalApartment.append(int(storage_room))
+        finalApartment.append(int(parking))
+        finalApartment.append(int(pool))
+        finalApartment.append(int(terraze))
+        
+        newArray.append(finalApartment)
 
 finalArray = np.array(newArray)
 
-print("longitud finalArray =", len(finalArray))
+print("longitud finalArray después de eliminar valores nulos =", len(finalArray))
 print(finalArray)
 
+
+# Elbow method to get best number of clusters
 wcss = []
-for i in range(1, 15):
+for i in range(1, 7):
     kmeans = KMeans(
         n_clusters=i, 
         init='k-means++', 
@@ -463,13 +334,14 @@ for i in range(1, 15):
 
     kmeans.fit(newArray)
     wcss.append(kmeans.inertia_)
-plt.plot(range(1, 15), wcss)
+plt.plot(range(1, 7), wcss)
 plt.title('Elbow Method')
 plt.xlabel('Number of clusters')
 plt.ylabel('WCSS')
 plt.show()
 
 
+# Kmeans itself
 kmeans = KMeans(
     n_clusters=4, 
     init='k-means++', 
@@ -485,5 +357,3 @@ labels, counts = np.unique(pred_y, return_counts=True)
 plt.bar(labels, counts, align='center')
 plt.gca().set_xticks(labels)
 plt.show()
-
-# añadir visualizacion con diagrama de barras o algo similar
