@@ -4,17 +4,24 @@ from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 
 file = open('C:\\Users\lucil\Downloads\data912478214.json', 'r', encoding='utf-8')
-X = json.loads(file.read())
+dataset1 = json.loads(file.read())
+
+file = open('C:\\Users\lucil\Downloads\data445531806.json', 'r', encoding='utf-8')
+dataset2 = json.loads(file.read())
+
+dataset1.extend(dataset2)
+X = dataset1
 
 newArray=[]
 
-print("longitud X =", len(X))
+print("length X =", len(X))
 
 # data format
 for i in range(0,len(X)):
     element=X[i]
 
     if len(element) != 11:
+        # print(X[i])
         continue
     else:
         price=element["price"]
@@ -32,9 +39,24 @@ for i in range(0,len(X)):
         finalApartment=[]
 
         finalApartment.append(price)
-        finalApartment.append(int(rooms))
-        finalApartment.append(int(bathrooms))
-        finalApartment.append(int(house_size))
+
+        if house_size.isnumeric():
+            finalApartment.append(int(rooms))
+        else:
+            # print("rooms with wrong format:", rooms)
+            continue
+
+        if house_size.isnumeric():
+            finalApartment.append(int(bathrooms))
+        else:
+            # print("bathrooms with wrong format:", bathrooms)
+            continue
+
+        if house_size.isnumeric():
+            finalApartment.append(int(house_size))
+        else:
+            # print("house_size with wrong format:", house_size)
+            continue
 
         if location.find("Palacio") != -1:
             finalApartment.append(11)
@@ -147,8 +169,8 @@ for i in range(0,len(X)):
 
 finalArray = np.array(newArray)
 
-print("longitud finalArray después de eliminar valores nulos =", len(finalArray))
-print(finalArray)
+print("length finalArray after removing null or strange values =", len(finalArray))
+# print(finalArray)
 
 
 # Elbow method to get best number of clusters
@@ -173,7 +195,7 @@ plt.show()
 
 # Kmeans itself
 kmeans = KMeans(
-    n_clusters=4, 
+    n_clusters=5, 
     init='k-means++', 
     max_iter=300, 
     n_init=10, 
