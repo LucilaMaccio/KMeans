@@ -38,15 +38,19 @@ for i in range(0,len(X)):
         
         finalApartment=[]
 
-        finalApartment.append(price)
+        if price.isnumeric():
+            finalApartment.append(int(price))
+        else:
+            # print("price with wrong format:", price)
+            continue
 
-        if house_size.isnumeric():
+        if rooms.isnumeric():
             finalApartment.append(int(rooms))
         else:
             # print("rooms with wrong format:", rooms)
             continue
 
-        if house_size.isnumeric():
+        if bathrooms.isnumeric():
             finalApartment.append(int(bathrooms))
         else:
             # print("bathrooms with wrong format:", bathrooms)
