@@ -171,11 +171,8 @@ for i in range(0,len(X)):
 
         newArray.append(finalApartment)
 
-finalArray = np.array(newArray)
-
-print("length finalArray after removing null or strange values =", len(finalArray))
-# print(finalArray)
-
+print("length newArray after removing null or strange values =", len(newArray))
+# print(newArray)
 
 # Elbow method to get best number of clusters
 wcss = []
