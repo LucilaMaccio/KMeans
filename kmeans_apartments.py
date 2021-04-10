@@ -203,10 +203,14 @@ kmeans = KMeans(
     random_state=0
 )
 pred_y = kmeans.fit_predict(newArray)
-print("KMEANS")
+print("KMEANS for n_clusters = 5")
 print(pred_y)
 
 labels, counts = np.unique(pred_y, return_counts=True)
 plt.bar(labels, counts, align='center')
 plt.gca().set_xticks(labels)
+plt.suptitle('Number of elements/cluster')
+plt.title("n_clusters = 5")
+plt.xlabel('Cluster')
+plt.ylabel('Number of elements')
 plt.show()
