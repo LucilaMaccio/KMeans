@@ -129,7 +129,7 @@ for i in range(0,len(X)):
         elif location.find("Vallehermoso") != -1: 
             finalApartment.append(76)
         else: 
-            finalApartment.append(-1)
+            continue
 
         if homeType.find("Casa")  != -1 or homeType.find("Chalet") != -1:
             finalApartment.append(0)
