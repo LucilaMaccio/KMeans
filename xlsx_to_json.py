@@ -234,6 +234,33 @@ from openpyxl import load_workbook
 #     f.write(j)
 
 # --------------------------------------------------------------------------------------
+# SPORT CENTERS
+# --------------------------------------------------------------------------------------
+
+wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/200215-0-instalaciones-deportivas.xlsx")
+
+sheet = wb['200215-0-instalaciones-deportiv']
+
+# List to hold dictionaries
+sport_centers_list = []
+
+# Iterate through each row in worksheet and fetch values into dict
+for row in islice(sheet.values, 1, sheet.max_row):
+    sports = OrderedDict()
+    sports['identifier'] = row[0]
+    sports['location'] = row[21]
+    sport_centers_list.append(sports)
+    
+print(len(sport_centers_list))
+
+# Serialize the list of dicts to JSON
+j = json.dumps(sport_centers_list, ensure_ascii=False)
+
+# Write to file
+with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/sport_centers.json', 'w', encoding='utf-8') as f:
+    f.write(j)
+
+# --------------------------------------------------------------------------------------
 # CATHOLIC CHURCHES
 # --------------------------------------------------------------------------------------
 
@@ -321,26 +348,26 @@ from openpyxl import load_workbook
 # POOLS
 # --------------------------------------------------------------------------------------
 
-wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/210227-0-piscinas-publicas.xlsx")
+# wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/210227-0-piscinas-publicas.xlsx")
 
-sheet = wb['210227-0-piscinas-publicas']
+# sheet = wb['210227-0-piscinas-publicas']
 
-# List to hold dictionaries
-pools_list = []
+# # List to hold dictionaries
+# pools_list = []
 
-# Iterate through each row in worksheet and fetch values into dict
-for row in islice(sheet.values, 1, sheet.max_row):
-    pools = OrderedDict()
-    pools['identifier'] = row[0]
-    pools['name'] = row[1]
-    pools['location'] = row[21]
-    pools_list.append(pools)
+# # Iterate through each row in worksheet and fetch values into dict
+# for row in islice(sheet.values, 1, sheet.max_row):
+#     pools = OrderedDict()
+#     pools['identifier'] = row[0]
+#     pools['name'] = row[1]
+#     pools['location'] = row[21]
+#     pools_list.append(pools)
     
-print(len(pools_list))
+# print(len(pools_list))
 
-# Serialize the list of dicts to JSON
-j = json.dumps(pools_list, ensure_ascii=False)
+# # Serialize the list of dicts to JSON
+# j = json.dumps(pools_list, ensure_ascii=False)
 
-# Write to file
-with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pools.json', 'w', encoding='utf-8') as f:
-    f.write(j)
+# # Write to file
+# with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pools.json', 'w', encoding='utf-8') as f:
+#     f.write(j)
