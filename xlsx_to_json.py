@@ -81,36 +81,36 @@ from openpyxl import load_workbook
 # GREEN ZONES
 # --------------------------------------------------------------------------------------
 
-# wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/IZVER_ZONAS_VERDES_2019.xlsx")
+wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/IZVER_ZONAS_VERDES_2019.xlsx")
 
-# sheet = wb['IZVERD_2019_CLEANED']
+sheet = wb['IZVERD_2019_CLEANED']
 
-# # List to hold dictionaries
-# greenZones_list = []
+# List to hold dictionaries
+greenZones_list = []
 
-# # Iterate through each row in worksheet and fetch values into dict
-# for row in islice(sheet.values, 1, sheet.max_row):
-#     greenZones = OrderedDict()
-#     greenZones['identifier'] = row[3]
-#     greenZones['location'] = row[0]
-#     greenZones['address'] = row[5]
-#     greenZones['size'] = row[7]
+# Iterate through each row in worksheet and fetch values into dict
+for row in islice(sheet.values, 1, sheet.max_row):
+    greenZones = OrderedDict()
+    greenZones['identifier'] = row[3]
+    greenZones['location'] = row[0]
+    greenZones['address'] = row[5]
+    greenZones['size'] = row[7]
 
-#     # print(greenZones)
+    # print(greenZones)
 
-#     greenZones_list.append(greenZones)
+    greenZones_list.append(greenZones)
 
-# print(len(greenZones_list))
+print(len(greenZones_list))
 
-# # Serialize the list of dicts to JSON
-# j = json.dumps(greenZones_list, ensure_ascii=False)
+# Serialize the list of dicts to JSON
+j = json.dumps(greenZones_list, ensure_ascii=False)
 
-# # Write to file
-# with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/greenZones.json', 'w', encoding='utf-8') as f:
-#     f.write(j)
+# Write to file
+with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/green_zones.json', 'w', encoding='utf-8') as f:
+    f.write(j)
 
 # --------------------------------------------------------------------------------------
-# POLICE DATA
+# SECURITY
 # --------------------------------------------------------------------------------------
 
 # wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/Datos_Marzo_2021-copia.xlsx")
@@ -237,28 +237,28 @@ from openpyxl import load_workbook
 # SPORT CENTERS
 # --------------------------------------------------------------------------------------
 
-wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/200215-0-instalaciones-deportivas.xlsx")
+# wb = load_workbook("C:/Users/lucil/OneDrive/EAE/TFM/datasets/xlsx/200215-0-instalaciones-deportivas.xlsx")
 
-sheet = wb['200215-0-instalaciones-deportiv']
+# sheet = wb['200215-0-instalaciones-deportiv']
 
-# List to hold dictionaries
-sport_centers_list = []
+# # List to hold dictionaries
+# sport_centers_list = []
 
-# Iterate through each row in worksheet and fetch values into dict
-for row in islice(sheet.values, 1, sheet.max_row):
-    sports = OrderedDict()
-    sports['identifier'] = row[0]
-    sports['location'] = row[21]
-    sport_centers_list.append(sports)
+# # Iterate through each row in worksheet and fetch values into dict
+# for row in islice(sheet.values, 1, sheet.max_row):
+#     sports = OrderedDict()
+#     sports['identifier'] = row[0]
+#     sports['location'] = row[21]
+#     sport_centers_list.append(sports)
     
-print(len(sport_centers_list))
+# print(len(sport_centers_list))
 
-# Serialize the list of dicts to JSON
-j = json.dumps(sport_centers_list, ensure_ascii=False)
+# # Serialize the list of dicts to JSON
+# j = json.dumps(sport_centers_list, ensure_ascii=False)
 
-# Write to file
-with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/sport_centers.json', 'w', encoding='utf-8') as f:
-    f.write(j)
+# # Write to file
+# with open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/sport_centers.json', 'w', encoding='utf-8') as f:
+#     f.write(j)
 
 # --------------------------------------------------------------------------------------
 # CATHOLIC CHURCHES
