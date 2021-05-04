@@ -7,134 +7,134 @@ from sklearn.cluster import KMeans
 # PHARMACIES
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pharmacies.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pharmacies.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# pharmaciesArray=[]
+pharmaciesArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
-#     service_type=element["service_type"]
+    location=element["location"]
+    service_type=element["service_type"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     if service_type.find("24") != -1:
-#         finalElement.append(0)
-#     elif service_type.find("DIURNO") != -1 or service_type.find("SERVICIO DE 7'00") != -1:
-#         finalElement.append(1)
-#     elif service_type.find("NOCTURNO") != -1:
-#         finalElement.append(2)
-#     else:
-#         finalElement.append(-1)
+    if service_type.find("24") != -1:
+        finalElement.append(0)
+    elif service_type.find("DIURNO") != -1 or service_type.find("SERVICIO DE 7'00") != -1:
+        finalElement.append(1)
+    elif service_type.find("NOCTURNO") != -1:
+        finalElement.append(2)
+    else:
+        finalElement.append(-1)
 
-#     pharmaciesArray.append(finalElement)
+    pharmaciesArray.append(finalElement)
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(pharmaciesArray)):
-#     if pharmaciesArray[i][0] == 10:
-#         countCentro += 1
-#     elif pharmaciesArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif pharmaciesArray[i][0] == 30:
-#         countRetiro += 1
-#     elif pharmaciesArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif pharmaciesArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(pharmaciesArray)):
+    if pharmaciesArray[i][0] == 10:
+        countCentro += 1
+    elif pharmaciesArray[i][0] == 20:
+        countArganzuela += 1
+    elif pharmaciesArray[i][0] == 30:
+        countRetiro += 1
+    elif pharmaciesArray[i][0] == 40:
+        countSalamanca += 1
+    elif pharmaciesArray[i][0] == 70:
+        countChamberi += 1
 
-# pharmaciesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+pharmaciesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print("length newArray after removing null or strange values =", len(pharmaciesArray))
-# print(pharmaciesArray)
+# print(pharmacielsArray)
 
 # --------------------------------------------------------------------------------------
 # GREEN ZONES
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/green_zones.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/green_zones.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# greenZonesArray=[]
+greenZonesArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
-#     size=element["size"]
+    location=element["location"]
+    size=element["size"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     index = size.find(".")
-#     sizeInt = size[:index]
-#     if sizeInt.isnumeric():
-#         finalElement.append(int(sizeInt))
-#     else:
-#         continue
+    index = size.find(".")
+    sizeInt = size[:index]
+    if sizeInt.isnumeric():
+        finalElement.append(int(sizeInt))
+    else:
+        continue
 
-#     greenZonesArray.append(finalElement)
+    greenZonesArray.append(finalElement)
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(greenZonesArray)):
-#     if greenZonesArray[i][0] == 10:
-#         countCentro += 1
-#     elif greenZonesArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif greenZonesArray[i][0] == 30:
-#         countRetiro += 1
-#     elif greenZonesArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif greenZonesArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(greenZonesArray)):
+    if greenZonesArray[i][0] == 10:
+        countCentro += 1
+    elif greenZonesArray[i][0] == 20:
+        countArganzuela += 1
+    elif greenZonesArray[i][0] == 30:
+        countRetiro += 1
+    elif greenZonesArray[i][0] == 40:
+        countSalamanca += 1
+    elif greenZonesArray[i][0] == 70:
+        countChamberi += 1
 
-# greenZonesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+greenZonesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print("length newArray after removing null or strange values =", len(greenZonesArray))
 # print(greenZonesArray)
@@ -143,42 +143,42 @@ from sklearn.cluster import KMeans
 # SECURITY
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/security.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/security.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# securityArray=[]
+securityArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
-#     securityRelatedWithPeople=element["security_related_with_people"]
-#     securityRelatedWithPatrimony=element["security_related_with_patrimony"]
+    location=element["location"]
+    securityRelatedWithPeople=element["security_related_with_people"]
+    securityRelatedWithPatrimony=element["security_related_with_patrimony"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     finalElement.append(int(securityRelatedWithPeople))
-#     finalElement.append(int(securityRelatedWithPatrimony))
+    finalElement.append(int(securityRelatedWithPeople))
+    finalElement.append(int(securityRelatedWithPatrimony))
 
-#     securityArray.append(finalElement)
+    securityArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(securityArray))
 # print(securityArray)
@@ -187,42 +187,42 @@ from sklearn.cluster import KMeans
 # ACCIDENTS
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/accidents.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/accidents.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# accidentsArray=[]
+accidentsArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
-#     accidentsWithVictims=element["accidents_with_victims"]
-#     accidentsWithoutVictims=element["accidents_without_victims"]
+    location=element["location"]
+    accidentsWithVictims=element["accidents_with_victims"]
+    accidentsWithoutVictims=element["accidents_without_victims"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     finalElement.append(int(accidentsWithVictims))
-#     finalElement.append(int(accidentsWithoutVictims))
+    finalElement.append(int(accidentsWithVictims))
+    finalElement.append(int(accidentsWithoutVictims))
 
-#     accidentsArray.append(finalElement)
+    accidentsArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(accidentsArray))
 # print(accidentsArray)
@@ -231,59 +231,59 @@ from sklearn.cluster import KMeans
 # LIBRARIES
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/libraries.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/libraries.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# librariesArray=[]
+librariesArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     librariesArray.append(finalElement)
+    librariesArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(librariesArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(librariesArray)):
-#     if librariesArray[i][0] == 10:
-#         countCentro += 1
-#     elif librariesArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif librariesArray[i][0] == 30:
-#         countRetiro += 1
-#     elif librariesArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif librariesArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(librariesArray)):
+    if librariesArray[i][0] == 10:
+        countCentro += 1
+    elif librariesArray[i][0] == 20:
+        countArganzuela += 1
+    elif librariesArray[i][0] == 30:
+        countRetiro += 1
+    elif librariesArray[i][0] == 40:
+        countSalamanca += 1
+    elif librariesArray[i][0] == 70:
+        countChamberi += 1
 
-# librariesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+librariesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(librariesArray)
 
@@ -291,59 +291,59 @@ from sklearn.cluster import KMeans
 # SCHOOLS
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/middle_schools.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/middle_schools.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# schoolsArray=[]
+schoolsArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     schoolsArray.append(finalElement)
+    schoolsArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(schoolsArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(schoolsArray)):
-#     if schoolsArray[i][0] == 10:
-#         countCentro += 1
-#     elif schoolsArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif schoolsArray[i][0] == 30:
-#         countRetiro += 1
-#     elif schoolsArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif schoolsArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(schoolsArray)):
+    if schoolsArray[i][0] == 10:
+        countCentro += 1
+    elif schoolsArray[i][0] == 20:
+        countArganzuela += 1
+    elif schoolsArray[i][0] == 30:
+        countRetiro += 1
+    elif schoolsArray[i][0] == 40:
+        countSalamanca += 1
+    elif schoolsArray[i][0] == 70:
+        countChamberi += 1
 
-# schoolsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+schoolsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(schoolsArray)
 
@@ -351,59 +351,59 @@ from sklearn.cluster import KMeans
 # MEDICAL ATTENTION 
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/medical_attention.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/medical_attention.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# medicalAttentionArray=[]
+medicalAttentionArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find("CENTRO") != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find("CENTRO") != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     medicalAttentionArray.append(finalElement)
+    medicalAttentionArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(medicalAttentionArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(medicalAttentionArray)):
-#     if medicalAttentionArray[i][0] == 10:
-#         countCentro += 1
-#     elif medicalAttentionArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif medicalAttentionArray[i][0] == 30:
-#         countRetiro += 1
-#     elif medicalAttentionArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif medicalAttentionArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(medicalAttentionArray)):
+    if medicalAttentionArray[i][0] == 10:
+        countCentro += 1
+    elif medicalAttentionArray[i][0] == 20:
+        countArganzuela += 1
+    elif medicalAttentionArray[i][0] == 30:
+        countRetiro += 1
+    elif medicalAttentionArray[i][0] == 40:
+        countSalamanca += 1
+    elif medicalAttentionArray[i][0] == 70:
+        countChamberi += 1
 
-# medicalAttentionArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+medicalAttentionArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(medicalAttentionArray)
 
@@ -418,7 +418,7 @@ X = dataset1
 
 socialAttentionArray=[]
 
-print("length X =", len(X))
+# print("length X =", len(X))
 
 # data format
 for i in range(0,len(X)):
@@ -443,8 +443,8 @@ for i in range(0,len(X)):
 
     socialAttentionArray.append(finalElement)
 
-print(socialAttentionArray)
-print("length newArray after removing null or strange values =", len(socialAttentionArray))
+# print(socialAttentionArray)
+# print("length newArray after removing null or strange values =", len(socialAttentionArray))
 
 countCentro = 0
 countArganzuela = 0
@@ -466,65 +466,65 @@ for i in range(0, len(socialAttentionArray)):
 
 socialAttentionArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
-print(socialAttentionArray)
+# print(socialAttentionArray)
 
 # --------------------------------------------------------------------------------------
 # SPORT CENTERS
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/sport_centers.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/sport_centers.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# sportCentersArray=[]
+sportCentersArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find('CENTRO') != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find('CENTRO') != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     sportCentersArray.append(finalElement)
+    sportCentersArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(sportCentersArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(sportCentersArray)):
-#     if sportCentersArray[i][0] == 10:
-#         countCentro += 1
-#     elif sportCentersArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif sportCentersArray[i][0] == 30:
-#         countRetiro += 1
-#     elif sportCentersArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif sportCentersArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(sportCentersArray)):
+    if sportCentersArray[i][0] == 10:
+        countCentro += 1
+    elif sportCentersArray[i][0] == 20:
+        countArganzuela += 1
+    elif sportCentersArray[i][0] == 30:
+        countRetiro += 1
+    elif sportCentersArray[i][0] == 40:
+        countSalamanca += 1
+    elif sportCentersArray[i][0] == 70:
+        countChamberi += 1
 
-# sportCentersArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+sportCentersArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(sportCentersArray)
 
@@ -532,59 +532,59 @@ print(socialAttentionArray)
 # CATHOLIC CHURCHES
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/cath_churches.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/cath_churches.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# cathChurchesArray=[]
+cathChurchesArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find('CENTRO') != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find('CENTRO') != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     cathChurchesArray.append(finalElement)
+    cathChurchesArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(cathChurchesArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(cathChurchesArray)):
-#     if cathChurchesArray[i][0] == 10:
-#         countCentro += 1
-#     elif cathChurchesArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif cathChurchesArray[i][0] == 30:
-#         countRetiro += 1
-#     elif cathChurchesArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif cathChurchesArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(cathChurchesArray)):
+    if cathChurchesArray[i][0] == 10:
+        countCentro += 1
+    elif cathChurchesArray[i][0] == 20:
+        countArganzuela += 1
+    elif cathChurchesArray[i][0] == 30:
+        countRetiro += 1
+    elif cathChurchesArray[i][0] == 40:
+        countSalamanca += 1
+    elif cathChurchesArray[i][0] == 70:
+        countChamberi += 1
 
-# cathChurchesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+cathChurchesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(cathChurchesArray)
 
@@ -592,59 +592,59 @@ print(socialAttentionArray)
 # NON CATHOLIC CHURCHES
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/non_cath_churches.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/non_cath_churches.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# nonCathChurchesArray=[]
+nonCathChurchesArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find('CENTRO') != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find('CENTRO') != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     nonCathChurchesArray.append(finalElement)
+    nonCathChurchesArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(nonCathChurchesArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(nonCathChurchesArray)):
-#     if nonCathChurchesArray[i][0] == 10:
-#         countCentro += 1
-#     elif nonCathChurchesArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif nonCathChurchesArray[i][0] == 30:
-#         countRetiro += 1
-#     elif nonCathChurchesArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif nonCathChurchesArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(nonCathChurchesArray)):
+    if nonCathChurchesArray[i][0] == 10:
+        countCentro += 1
+    elif nonCathChurchesArray[i][0] == 20:
+        countArganzuela += 1
+    elif nonCathChurchesArray[i][0] == 30:
+        countRetiro += 1
+    elif nonCathChurchesArray[i][0] == 40:
+        countSalamanca += 1
+    elif nonCathChurchesArray[i][0] == 70:
+        countChamberi += 1
 
-# nonCathChurchesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+nonCathChurchesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(nonCathChurchesArray)
 
@@ -652,59 +652,59 @@ print(socialAttentionArray)
 # MARKETS
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/markets.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/markets.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# marketsArray=[]
+marketsArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find('CENTRO') != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find('CENTRO') != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     marketsArray.append(finalElement)
+    marketsArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(marketsArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(marketsArray)):
-#     if marketsArray[i][0] == 10:
-#         countCentro += 1
-#     elif marketsArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif marketsArray[i][0] == 30:
-#         countRetiro += 1
-#     elif marketsArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif marketsArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(marketsArray)):
+    if marketsArray[i][0] == 10:
+        countCentro += 1
+    elif marketsArray[i][0] == 20:
+        countArganzuela += 1
+    elif marketsArray[i][0] == 30:
+        countRetiro += 1
+    elif marketsArray[i][0] == 40:
+        countSalamanca += 1
+    elif marketsArray[i][0] == 70:
+        countChamberi += 1
 
-# marketsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+marketsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(marketsArray)
 
@@ -712,58 +712,58 @@ print(socialAttentionArray)
 # POOLS
 # --------------------------------------------------------------------------------------
 
-# file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pools.json', 'r', encoding='utf-8')
-# dataset1 = json.loads(file.read())
+file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pools.json', 'r', encoding='utf-8')
+dataset1 = json.loads(file.read())
 
-# X = dataset1
+X = dataset1
 
-# poolsArray=[]
+poolsArray=[]
 
 # print("length X =", len(X))
 
-# # data format
-# for i in range(0,len(X)):
-#     element=X[i]
+# data format
+for i in range(0,len(X)):
+    element=X[i]
 
-#     location=element["location"]
+    location=element["location"]
     
-#     finalElement=[]
+    finalElement=[]
 
-#     if location.find('CENTRO') != -1:
-#         finalElement.append(10)
-#     elif location.find("ARGANZUELA") != -1: 
-#         finalElement.append(20)
-#     elif location.find("RETIRO") != -1: 
-#         finalElement.append(30)
-#     elif location.find("SALAMANCA") != -1: 
-#         finalElement.append(40)
-#     elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
-#         finalElement.append(70)
-#     else: 
-#         continue
+    if location.find('CENTRO') != -1:
+        finalElement.append(10)
+    elif location.find("ARGANZUELA") != -1: 
+        finalElement.append(20)
+    elif location.find("RETIRO") != -1: 
+        finalElement.append(30)
+    elif location.find("SALAMANCA") != -1: 
+        finalElement.append(40)
+    elif location.find("CHAMBERI") != -1 or location.find("CHAMBERÍ") != -1: 
+        finalElement.append(70)
+    else: 
+        continue
 
-#     poolsArray.append(finalElement)
+    poolsArray.append(finalElement)
 
 # print("length newArray after removing null or strange values =", len(poolsArray))
 
-# countCentro = 0
-# countArganzuela = 0
-# countRetiro = 0
-# countSalamanca = 0
-# countChamberi = 0
+countCentro = 0
+countArganzuela = 0
+countRetiro = 0
+countSalamanca = 0
+countChamberi = 0
 
-# for i in range(0, len(poolsArray)):
-#     if poolsArray[i][0] == 10:
-#         countCentro += 1
-#     elif poolsArray[i][0] == 20:
-#         countArganzuela += 1
-#     elif poolsArray[i][0] == 30:
-#         countRetiro += 1
-#     elif poolsArray[i][0] == 40:
-#         countSalamanca += 1
-#     elif poolsArray[i][0] == 70:
-#         countChamberi += 1
+for i in range(0, len(poolsArray)):
+    if poolsArray[i][0] == 10:
+        countCentro += 1
+    elif poolsArray[i][0] == 20:
+        countArganzuela += 1
+    elif poolsArray[i][0] == 30:
+        countRetiro += 1
+    elif poolsArray[i][0] == 40:
+        countSalamanca += 1
+    elif poolsArray[i][0] == 70:
+        countChamberi += 1
 
-# poolsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
+poolsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40, countSalamanca], [70, countChamberi]]
 
 # print(poolsArray)
