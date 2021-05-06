@@ -131,7 +131,19 @@ for i in range(0,len(X)):
             fullApartment.append(0)
 
         if location.find("Palacio") != -1 or location.find("Embajadores") != -1 or location.find("Cortes") != -1 or location.find("Justicia") != -1 or location.find("Universidad") != -1 or location.find("Sol") != -1:
-            fullApartment.append(10)
+            if location.find("Palacio") != -1:
+                fullApartment.append(11)
+            if location.find("Embajadores") != -1:
+                fullApartment.append(12)
+            if location.find("Cortes") != -1:
+                fullApartment.append(13)
+            if location.find("Justicia") != -1:
+                fullApartment.append(14)
+            if location.find("Universidad") != -1:
+                fullApartment.append(15)
+            if location.find("Sol") != -1:
+                fullApartment.append(16)
+
             fullApartment.append(pharmaciesArray[0][1])
             fullApartment.append(greenZonesArray[0][1])
             fullApartment.append(securityArray[0][1])
@@ -149,7 +161,21 @@ for i in range(0,len(X)):
             fullApartment.append(poolsArray[0][1])
 
         elif location.find("Imperial") != -1 or location.find("Acacias") != -1 or location.find("Chopera") != -1 or location.find("Legazpi") != -1 or location.find("Delicias") != -1 or location.find("Palos de Moguer") != -1 or location.find("Atocha") != -1: 
-            fullApartment.append(20)
+            if location.find("Imperial") != -1:
+                fullApartment.append(21)
+            if location.find("Acacias") != -1:
+                fullApartment.append(22)
+            if location.find("Chopera") != -1:
+                fullApartment.append(23)
+            if location.find("Legazpi") != -1:
+                fullApartment.append(24)
+            if location.find("Delicias") != -1:
+                fullApartment.append(25)
+            if location.find("Palos de Moguer") != -1:
+                fullApartment.append(26)
+            if location.find("Atocha") != -1:
+                fullApartment.append(27)
+
             fullApartment.append(pharmaciesArray[1][1])
             fullApartment.append(greenZonesArray[1][1])
             fullApartment.append(securityArray[1][1])
@@ -167,7 +193,19 @@ for i in range(0,len(X)):
             fullApartment.append(poolsArray[1][1])
 
         elif location.find("Pacífico") != -1 or location.find("Adelfas") != -1 or location.find("Estrella") != -1 or location.find("Ibiza") != -1 or location.find("Jerónimos") != -1 or location.find("Niño Jesús") != -1: 
-            fullApartment.append(30)
+            if location.find("Pacífico") != -1:
+                fullApartment.append(31)
+            if location.find("Adelfas") != -1:
+                fullApartment.append(32)
+            if location.find("Estrella") != -1:
+                fullApartment.append(33)
+            if location.find("Ibiza") != -1:
+                fullApartment.append(34)
+            if location.find("Jerónimos") != -1:
+                fullApartment.append(35)
+            if location.find("Niño Jesús") != -1:
+                fullApartment.append(36)
+
             fullApartment.append(pharmaciesArray[2][1])
             fullApartment.append(greenZonesArray[2][1])
             fullApartment.append(securityArray[2][1])
@@ -185,7 +223,19 @@ for i in range(0,len(X)):
             fullApartment.append(poolsArray[2][1])
 
         elif location.find("Recoletos") != -1 or location.find("Goya") != -1 or location.find("Fuente del Berro") != -1 or location.find("Guindalera") != -1 or location.find("Lista") != -1 or location.find("Castellana") != -1: 
-            fullApartment.append(40)
+            if location.find("Recoletos") != -1:
+                fullApartment.append(41)
+            if location.find("Goya") != -1:
+                fullApartment.append(42)
+            if location.find("Fuente del Berro") != -1:
+                fullApartment.append(43)
+            if location.find("Guindalera") != -1:
+                fullApartment.append(44)
+            if location.find("Lista") != -1:
+                fullApartment.append(45)
+            if location.find("Castellana") != -1:
+                fullApartment.append(46)
+
             fullApartment.append(pharmaciesArray[3][1])
             fullApartment.append(greenZonesArray[3][1])
             fullApartment.append(securityArray[3][1])
@@ -203,7 +253,19 @@ for i in range(0,len(X)):
             fullApartment.append(poolsArray[3][1])
 
         elif location.find("Gaztambide") != -1 or location.find("Arapiles") != -1 or location.find("Trafalgar") != -1 or location.find("Almagro") != -1 or location.find("Rios Rosas") != -1 or location.find("Vallehermoso") != -1: 
-            fullApartment.append(70)
+            if location.find("Gaztambide") != -1:
+                fullApartment.append(71)
+            if location.find("Arapiles") != -1:
+                fullApartment.append(72)
+            if location.find("Trafalgar") != -1:
+                fullApartment.append(73)
+            if location.find("Almagro") != -1:
+                fullApartment.append(74)
+            if location.find("Rios Rosas") != -1:
+                fullApartment.append(75)
+            if location.find("Vallehermoso") != -1:
+                fullApartment.append(76)
+
             fullApartment.append(pharmaciesArray[4][1])
             fullApartment.append(greenZonesArray[4][1])
             fullApartment.append(securityArray[4][1])
@@ -222,7 +284,7 @@ for i in range(0,len(X)):
         else: 
             continue
 
-        # print(fullApartment)
+        print(fullApartment)
         filteredApartment = []
 
         # ELEGIR AQUI LOS VALORES QUE SE QUIERAN PROBAR
