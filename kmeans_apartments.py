@@ -41,7 +41,8 @@ dataset2 = json.loads(file.read())
 dataset1.extend(dataset2)
 X = dataset1
 
-newArray=[]
+fullArray=[]
+filteredArray = []
 
 print("length X =", len(X))
 
@@ -65,168 +66,180 @@ for i in range(0,len(X)):
         storage_room=element["storage_room"]
         terraze=element["terraze"]
         
-        finalApartment=[]
+        fullApartment=[]
 
         if price.isnumeric():
-            finalApartment.append(int(price))
+            fullApartment.append(int(price))
         else:
             # print("price with wrong format:", price)
             continue
 
         if rooms.isnumeric():
-            finalApartment.append(int(rooms))
+            fullApartment.append(int(rooms))
         else:
             # print("rooms with wrong format:", rooms)
             continue
 
         if bathrooms.isnumeric():
-            finalApartment.append(int(bathrooms))
+            fullApartment.append(int(bathrooms))
         else:
             # print("bathrooms with wrong format:", bathrooms)
             continue
 
         if house_size.isnumeric():
-            finalApartment.append(int(house_size))
+            fullApartment.append(int(house_size))
         else:
             # print("house_size with wrong format:", house_size)
             continue
 
         if homeType.find("Casa")  != -1 or homeType.find("Chalet") != -1:
-            finalApartment.append(0)
+            fullApartment.append(0)
         elif homeType.find("Piso") != -1 or homeType.find("Apartamento") != -1:
-            finalApartment.append(1)
+            fullApartment.append(1)
         elif homeType.find("Adosada") != -1 or homeType.find("Adosado") != -1:
-            finalApartment.append(2)
+            fullApartment.append(2)
         elif homeType.find("Dúplex") != -1:
-            finalApartment.append(3)
+            fullApartment.append(3)
         elif homeType.find("Ático") != -1:
-            finalApartment.append(4)
+            fullApartment.append(4)
         else:
-            finalApartment.append(-1)
+            fullApartment.append(-1)
 
         if elevator == True:
-            finalApartment.append(1)
+            fullApartment.append(1)
         else:
-            finalApartment.append(0)
+            fullApartment.append(0)
 
         if storage_room == True:
-            finalApartment.append(1)
+            fullApartment.append(1)
         else:
-            finalApartment.append(0)
+            fullApartment.append(0)
 
         if parking == True:
-            finalApartment.append(1)
+            fullApartment.append(1)
         else:
-            finalApartment.append(0)
+            fullApartment.append(0)
 
         if pool == True:
-            finalApartment.append(1)
+            fullApartment.append(1)
         else:
-            finalApartment.append(0)
+            fullApartment.append(0)
 
         if terraze == True:
-            finalApartment.append(1)
+            fullApartment.append(1)
         else:
-            finalApartment.append(0)
+            fullApartment.append(0)
 
         if location.find("Palacio") != -1 or location.find("Embajadores") != -1 or location.find("Cortes") != -1 or location.find("Justicia") != -1 or location.find("Universidad") != -1 or location.find("Sol") != -1:
-            finalApartment.append(10)
-            finalApartment.append(pharmaciesArray[0][1])
-            finalApartment.append(greenZonesArray[0][1])
-            finalApartment.append(securityArray[0][1])
-            finalApartment.append(securityArray[0][2])
-            finalApartment.append(accidentsArray[0][1])
-            finalApartment.append(accidentsArray[0][2])
-            finalApartment.append(librariesArray[0][1])
-            finalApartment.append(schoolsArray[0][1])
-            finalApartment.append(medicalAttentionArray[0][1])
-            finalApartment.append(socialAttentionArray[0][1])
-            finalApartment.append(sportCentersArray[0][1])
-            finalApartment.append(cathChurchesArray[0][1])
-            finalApartment.append(nonCathChurchesArray[0][1])
-            finalApartment.append(marketsArray[0][1])
-            finalApartment.append(poolsArray[0][1])
+            fullApartment.append(10)
+            fullApartment.append(pharmaciesArray[0][1])
+            fullApartment.append(greenZonesArray[0][1])
+            fullApartment.append(securityArray[0][1])
+            fullApartment.append(securityArray[0][2])
+            fullApartment.append(accidentsArray[0][1])
+            fullApartment.append(accidentsArray[0][2])
+            fullApartment.append(librariesArray[0][1])
+            fullApartment.append(schoolsArray[0][1])
+            fullApartment.append(medicalAttentionArray[0][1])
+            fullApartment.append(socialAttentionArray[0][1])
+            fullApartment.append(sportCentersArray[0][1])
+            fullApartment.append(cathChurchesArray[0][1])
+            fullApartment.append(nonCathChurchesArray[0][1])
+            fullApartment.append(marketsArray[0][1])
+            fullApartment.append(poolsArray[0][1])
 
         elif location.find("Imperial") != -1 or location.find("Acacias") != -1 or location.find("Chopera") != -1 or location.find("Legazpi") != -1 or location.find("Delicias") != -1 or location.find("Palos de Moguer") != -1 or location.find("Atocha") != -1: 
-            finalApartment.append(20)
-            finalApartment.append(pharmaciesArray[1][1])
-            finalApartment.append(greenZonesArray[1][1])
-            finalApartment.append(securityArray[1][1])
-            finalApartment.append(securityArray[1][2])
-            finalApartment.append(accidentsArray[1][1])
-            finalApartment.append(accidentsArray[1][2])
-            finalApartment.append(librariesArray[1][1])
-            finalApartment.append(schoolsArray[1][1])
-            finalApartment.append(medicalAttentionArray[1][1])
-            finalApartment.append(socialAttentionArray[1][1])
-            finalApartment.append(sportCentersArray[1][1])
-            finalApartment.append(cathChurchesArray[1][1])
-            finalApartment.append(nonCathChurchesArray[1][1])
-            finalApartment.append(marketsArray[1][1])
-            finalApartment.append(poolsArray[1][1])
+            fullApartment.append(20)
+            fullApartment.append(pharmaciesArray[1][1])
+            fullApartment.append(greenZonesArray[1][1])
+            fullApartment.append(securityArray[1][1])
+            fullApartment.append(securityArray[1][2])
+            fullApartment.append(accidentsArray[1][1])
+            fullApartment.append(accidentsArray[1][2])
+            fullApartment.append(librariesArray[1][1])
+            fullApartment.append(schoolsArray[1][1])
+            fullApartment.append(medicalAttentionArray[1][1])
+            fullApartment.append(socialAttentionArray[1][1])
+            fullApartment.append(sportCentersArray[1][1])
+            fullApartment.append(cathChurchesArray[1][1])
+            fullApartment.append(nonCathChurchesArray[1][1])
+            fullApartment.append(marketsArray[1][1])
+            fullApartment.append(poolsArray[1][1])
 
         elif location.find("Pacífico") != -1 or location.find("Adelfas") != -1 or location.find("Estrella") != -1 or location.find("Ibiza") != -1 or location.find("Jerónimos") != -1 or location.find("Niño Jesús") != -1: 
-            finalApartment.append(30)
-            finalApartment.append(pharmaciesArray[2][1])
-            finalApartment.append(greenZonesArray[2][1])
-            finalApartment.append(securityArray[2][1])
-            finalApartment.append(securityArray[2][2])
-            finalApartment.append(accidentsArray[2][1])
-            finalApartment.append(accidentsArray[2][2])
-            finalApartment.append(librariesArray[2][1])
-            finalApartment.append(schoolsArray[2][1])
-            finalApartment.append(medicalAttentionArray[2][1])
-            finalApartment.append(socialAttentionArray[2][1])
-            finalApartment.append(sportCentersArray[2][1])
-            finalApartment.append(cathChurchesArray[2][1])
-            finalApartment.append(nonCathChurchesArray[2][1])
-            finalApartment.append(marketsArray[2][1])
-            finalApartment.append(poolsArray[2][1])
+            fullApartment.append(30)
+            fullApartment.append(pharmaciesArray[2][1])
+            fullApartment.append(greenZonesArray[2][1])
+            fullApartment.append(securityArray[2][1])
+            fullApartment.append(securityArray[2][2])
+            fullApartment.append(accidentsArray[2][1])
+            fullApartment.append(accidentsArray[2][2])
+            fullApartment.append(librariesArray[2][1])
+            fullApartment.append(schoolsArray[2][1])
+            fullApartment.append(medicalAttentionArray[2][1])
+            fullApartment.append(socialAttentionArray[2][1])
+            fullApartment.append(sportCentersArray[2][1])
+            fullApartment.append(cathChurchesArray[2][1])
+            fullApartment.append(nonCathChurchesArray[2][1])
+            fullApartment.append(marketsArray[2][1])
+            fullApartment.append(poolsArray[2][1])
 
         elif location.find("Recoletos") != -1 or location.find("Goya") != -1 or location.find("Fuente del Berro") != -1 or location.find("Guindalera") != -1 or location.find("Lista") != -1 or location.find("Castellana") != -1: 
-            finalApartment.append(40)
-            finalApartment.append(pharmaciesArray[3][1])
-            finalApartment.append(greenZonesArray[3][1])
-            finalApartment.append(securityArray[3][1])
-            finalApartment.append(securityArray[3][2])
-            finalApartment.append(accidentsArray[3][1])
-            finalApartment.append(accidentsArray[3][2])
-            finalApartment.append(librariesArray[3][1])
-            finalApartment.append(schoolsArray[3][1])
-            finalApartment.append(medicalAttentionArray[3][1])
-            finalApartment.append(socialAttentionArray[3][1])
-            finalApartment.append(sportCentersArray[3][1])
-            finalApartment.append(cathChurchesArray[3][1])
-            finalApartment.append(nonCathChurchesArray[3][1])
-            finalApartment.append(marketsArray[3][1])
-            finalApartment.append(poolsArray[3][1])
+            fullApartment.append(40)
+            fullApartment.append(pharmaciesArray[3][1])
+            fullApartment.append(greenZonesArray[3][1])
+            fullApartment.append(securityArray[3][1])
+            fullApartment.append(securityArray[3][2])
+            fullApartment.append(accidentsArray[3][1])
+            fullApartment.append(accidentsArray[3][2])
+            fullApartment.append(librariesArray[3][1])
+            fullApartment.append(schoolsArray[3][1])
+            fullApartment.append(medicalAttentionArray[3][1])
+            fullApartment.append(socialAttentionArray[3][1])
+            fullApartment.append(sportCentersArray[3][1])
+            fullApartment.append(cathChurchesArray[3][1])
+            fullApartment.append(nonCathChurchesArray[3][1])
+            fullApartment.append(marketsArray[3][1])
+            fullApartment.append(poolsArray[3][1])
 
         elif location.find("Gaztambide") != -1 or location.find("Arapiles") != -1 or location.find("Trafalgar") != -1 or location.find("Almagro") != -1 or location.find("Rios Rosas") != -1 or location.find("Vallehermoso") != -1: 
-            finalApartment.append(70)
-            finalApartment.append(pharmaciesArray[4][1])
-            finalApartment.append(greenZonesArray[4][1])
-            finalApartment.append(securityArray[4][1])
-            finalApartment.append(securityArray[4][2])
-            finalApartment.append(accidentsArray[4][1])
-            finalApartment.append(accidentsArray[4][2])
-            finalApartment.append(librariesArray[4][1])
-            finalApartment.append(schoolsArray[4][1])
-            finalApartment.append(medicalAttentionArray[4][1])
-            finalApartment.append(socialAttentionArray[4][1])
-            finalApartment.append(sportCentersArray[4][1])
-            finalApartment.append(cathChurchesArray[4][1])
-            finalApartment.append(nonCathChurchesArray[4][1])
-            finalApartment.append(marketsArray[4][1])
-            finalApartment.append(poolsArray[4][1])
+            fullApartment.append(70)
+            fullApartment.append(pharmaciesArray[4][1])
+            fullApartment.append(greenZonesArray[4][1])
+            fullApartment.append(securityArray[4][1])
+            fullApartment.append(securityArray[4][2])
+            fullApartment.append(accidentsArray[4][1])
+            fullApartment.append(accidentsArray[4][2])
+            fullApartment.append(librariesArray[4][1])
+            fullApartment.append(schoolsArray[4][1])
+            fullApartment.append(medicalAttentionArray[4][1])
+            fullApartment.append(socialAttentionArray[4][1])
+            fullApartment.append(sportCentersArray[4][1])
+            fullApartment.append(cathChurchesArray[4][1])
+            fullApartment.append(nonCathChurchesArray[4][1])
+            fullApartment.append(marketsArray[4][1])
+            fullApartment.append(poolsArray[4][1])
         else: 
             continue
 
-        print(finalApartment)
-        newArray.append(finalApartment)
+        # print(fullApartment)
+        filteredApartment = []
 
-print("length newArray after removing null or strange values =", len(newArray))
-# print(newArray)
+        # ELEGIR AQUI LOS VALORES QUE SE QUIERAN PROBAR
+        filteredApartment.append(fullApartment[4])
+        filteredApartment.append(fullApartment[5])
+        filteredApartment.append(fullApartment[6])
 
+        filteredArray.append(filteredApartment)
+        # print(filteredApartment)
+        fullArray.append(fullApartment)
+
+# print("length fullArray after removing null or strange values =", len(fullArray))
+# print(fullArray)
+
+# -----------------------------------------------------------------------------
+# TODAS LAS CARACTERISTICAS
+# -----------------------------------------------------------------------------
 # Elbow method to get best number of clusters
 wcss = []
 for i in range(1, 7):
@@ -238,7 +251,51 @@ for i in range(1, 7):
         random_state=0
     )
 
-    kmeans.fit(newArray)
+    kmeans.fit(fullArray)
+    wcss.append(kmeans.inertia_)
+plt.plot(range(1, 7), wcss)
+plt.title('Elbow Method')
+plt.xlabel('Number of clusters')
+plt.ylabel('WCSS')
+plt.show()
+
+# Kmeans itself
+kmeans = KMeans(
+    n_clusters=4, 
+    init='k-means++', 
+    max_iter=300, 
+    n_init=10, 
+    random_state=0
+)
+pred_y = kmeans.fit_predict(fullArray)
+print("KMEANS for n_clusters = 4")
+print(pred_y)
+
+labels, counts = np.unique(pred_y, return_counts=True)
+plt.bar(labels, counts, align='center')
+plt.gca().set_xticks(labels)
+plt.suptitle('Number of elements/cluster')
+plt.title("n_clusters = 4")
+plt.xlabel('Cluster')
+plt.ylabel('Number of elements')
+plt.show()
+
+
+# -----------------------------------------------------------------------------
+# SOLO CARACTERISTICAS SELECCIONADAS
+# -----------------------------------------------------------------------------
+# Elbow method to get best number of clusters
+wcss = []
+for i in range(1, 7):
+    kmeans = KMeans(
+        n_clusters=i, 
+        init='k-means++', 
+        max_iter=300, 
+        n_init=10, 
+        random_state=0
+    )
+
+    kmeans.fit(filteredArray)
     wcss.append(kmeans.inertia_)
 plt.plot(range(1, 7), wcss)
 plt.title('Elbow Method')
@@ -255,7 +312,7 @@ kmeans = KMeans(
     n_init=10, 
     random_state=0
 )
-pred_y = kmeans.fit_predict(newArray)
+pred_y = kmeans.fit_predict(filteredArray)
 print("KMEANS for n_clusters = 4")
 print(pred_y)
 
