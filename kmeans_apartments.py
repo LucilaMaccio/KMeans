@@ -2,6 +2,7 @@ import numpy as np
 import json
 from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, davies_bouldin_score
 import os
 
 from kmeans_madrid import pharmaciesArray, greenZonesArray, securityArray, accidentsArray, librariesArray, schoolsArray, medicalAttentionArray, socialAttentionArray, sportCentersArray, cathChurchesArray, nonCathChurchesArray, marketsArray, poolsArray
@@ -311,8 +312,8 @@ for i in range(0,len(X)):
             filteredApartment.append(fullApartment[5])
             filteredApartment.append(fullApartment[7])
             filteredApartment.append(fullApartment[8])
-            filteredApartment.append(fullApartment[11])
-            filteredApartment.append(fullApartment[17])
+            # filteredApartment.append(fullApartment[11])
+            # filteredApartment.append(fullApartment[17])
 
             filteredArray.append(filteredApartment)
             # print(filteredApartment)
@@ -341,7 +342,7 @@ plt.plot(range(1, 9), wcss)
 plt.title('Elbow Method')
 plt.xlabel('Number of clusters')
 plt.ylabel('WCSS')
-plt.show()
+# plt.show()
 
 # Kmeans itself
 kmeans = KMeans(
@@ -355,6 +356,14 @@ pred_y = kmeans.fit_predict(fullArray)
 print("KMEANS for n_clusters = 5")
 print(pred_y)
 
+# if score is near to 1, the clustering is good
+silhouetteScore = silhouette_score(fullArray, kmeans.labels_, metric='euclidean')
+print(silhouetteScore)
+
+# if score is near to 0, the clustering is good
+dbScore = davies_bouldin_score(fullArray, kmeans.labels_)
+print(dbScore)
+
 labels, counts = np.unique(pred_y, return_counts=True)
 plt.bar(labels, counts, align='center')
 plt.gca().set_xticks(labels)
@@ -362,7 +371,7 @@ plt.suptitle('Number of elements/cluster')
 plt.title("n_clusters = 5")
 plt.xlabel('Cluster')
 plt.ylabel('Number of elements')
-plt.show()
+# plt.show()
 
 
 # -----------------------------------------------------------------------------
@@ -385,12 +394,12 @@ plt.plot(range(1, 9), wcss)
 plt.title('Elbow Method')
 plt.xlabel('Number of clusters')
 plt.ylabel('WCSS')
-plt.show()
+# plt.show()
 
 
 # Kmeans itself
 kmeans = KMeans(
-    n_clusters=4, 
+    n_clusters=5, 
     init='k-means++', 
     max_iter=300, 
     n_init=10, 
@@ -407,4 +416,22 @@ plt.suptitle('Number of elements/cluster')
 plt.title("n_clusters = 4")
 plt.xlabel('Cluster')
 plt.ylabel('Number of elements')
-plt.show()
+# plt.show()
+
+# if score is near to 1, the clustering is good
+silhouetteScore = silhouette_score(filteredArray, kmeans.labels_, metric='euclidean')
+print(silhouetteScore)
+
+# if score is near to 0, the clustering is good
+dbScore = davies_bouldin_score(filteredArray, kmeans.labels_)
+print(dbScore)
+
+
+# output = []
+
+# for i in range(0, len(pred_y)):
+#     if pred_y[i] == 2:
+#         output.append(filteredArray[i])
+
+# print('Los pisos que le recomendamos son:')
+# print(output)
