@@ -7,7 +7,7 @@ from sklearn.cluster import KMeans
 # PHARMACIES
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pharmacies.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/pharmacies.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -76,7 +76,7 @@ pharmaciesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], 
 # GREEN ZONES
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/green_zones.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/green_zones.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -143,7 +143,7 @@ greenZonesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], 
 # SECURITY
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/security.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/security.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -187,7 +187,7 @@ for i in range(0,len(X)):
 # ACCIDENTS
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/accidents.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/accidents.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -231,7 +231,7 @@ for i in range(0,len(X)):
 # LIBRARIES
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/libraries.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/libraries.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -291,7 +291,7 @@ librariesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [
 # SCHOOLS
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/middle_schools.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/middle_schools.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -351,7 +351,7 @@ schoolsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40
 # MEDICAL ATTENTION 
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/medical_attention.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/medical_attention.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -411,7 +411,7 @@ medicalAttentionArray = [[10, countCentro], [20, countArganzuela], [30, countRet
 # SOCIAL ATTENTION 
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/social_attention.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/social_attention.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -472,7 +472,7 @@ socialAttentionArray = [[10, countCentro], [20, countArganzuela], [30, countReti
 # SPORT CENTERS
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/sport_centers.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/sport_centers.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -532,7 +532,7 @@ sportCentersArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro]
 # CATHOLIC CHURCHES
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/cath_churches.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/cath_churches.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -592,7 +592,7 @@ cathChurchesArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro]
 # NON CATHOLIC CHURCHES
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/non_cath_churches.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/non_cath_churches.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -652,7 +652,7 @@ nonCathChurchesArray = [[10, countCentro], [20, countArganzuela], [30, countReti
 # MARKETS
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/markets.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/markets.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1
@@ -712,7 +712,7 @@ marketsArray = [[10, countCentro], [20, countArganzuela], [30, countRetiro], [40
 # POOLS
 # --------------------------------------------------------------------------------------
 
-file = open('C:/Users/lucil/OneDrive/EAE/TFM/datasets/json/pools.json', 'r', encoding='utf-8')
+file = open('/Users/pablochamorro/PycharmProjects/KMeans/madridData/pools.json', 'r', encoding='utf-8')
 dataset1 = json.loads(file.read())
 
 X = dataset1

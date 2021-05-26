@@ -4,6 +4,7 @@ from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 import os
+import pandas as pd
 
 from kmeans_madrid import pharmaciesArray, greenZonesArray, securityArray, accidentsArray, librariesArray, schoolsArray, medicalAttentionArray, socialAttentionArray, sportCentersArray, cathChurchesArray, nonCathChurchesArray, marketsArray, poolsArray
 
@@ -37,10 +38,10 @@ from kmeans_madrid import pharmaciesArray, greenZonesArray, securityArray, accid
 dataset = []
 print(type(dataset))
 
-for directory in os.listdir('C:\\Users\lucil\OneDrive\EAE\TFM\datasets\pisos\data-20210511T194951Z-001\data'):
+for directory in os.listdir('/Users/pablochamorro/PycharmProjects/WebScraping/data'):
     # print(directory)
 
-    path = os.path.join('C:\\Users\lucil\OneDrive\EAE\TFM\datasets\pisos\data-20210511T194951Z-001\data', directory)
+    path = os.path.join('/Users/pablochamorro/PycharmProjects/WebScraping/data', directory)
 
     for filename in os.listdir(path):
         with open(os.path.join(path, filename), 'r', encoding='utf-8') as file: 
@@ -322,6 +323,20 @@ for i in range(0,len(X)):
 # print("length fullArray after removing null or strange values =", len(fullArray))
 # print(fullArray)
 
+pd.DataFrame(np.concatenate(fullArray))
+
+columns = ["Price", "Rooms", "Bathrooms", "House Size", "Location", "Type", "Elevator", "Parking", "Pool",
+           "Storage Room", "Terraze", "Pharmacies", "Green Zones", "Security related to people",
+           "Security related to heritage", "Accidents with victims", "Accidents without victims",
+           "Libraries", "Schools", "Medical Attention", "Social Attention", "Sport Centers", "Catholic Churches",
+           "Non Catholic Churches", "Markets", "Public Pools"]
+
+pd.set_option('precision', 0)
+dataframe = pd.DataFrame(fullArray[0:], columns=[columns])
+
+dataframe = dataframe.astype(int)
+
+dataframe.to_csv(r'/Users/pablochamorro/PycharmProjects/KMeans/export_data.csv', index=True, header=True)
 # -----------------------------------------------------------------------------
 # TODAS LAS CARACTERISTICAS
 # -----------------------------------------------------------------------------
@@ -342,7 +357,7 @@ plt.plot(range(1, 9), wcss)
 plt.title('Elbow Method')
 plt.xlabel('Number of clusters')
 plt.ylabel('WCSS')
-# plt.show()
+plt.show()
 
 # Kmeans itself
 kmeans = KMeans(
@@ -371,7 +386,7 @@ plt.suptitle('Number of elements/cluster')
 plt.title("n_clusters = 5")
 plt.xlabel('Cluster')
 plt.ylabel('Number of elements')
-# plt.show()
+plt.show()
 
 
 # -----------------------------------------------------------------------------
